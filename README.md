@@ -14,3 +14,9 @@ It needs to be pointed to a MySQL database which is set up as:
 * oauth_token, text
 * oauth_token_secret, text
 * user_id,	text
+
+Other bits:
+* The scripts auth-test.py and sort-album.py need to be set as executable (CHMOD 755).
+* Your webserver may need to be setup to ensure Python is used to execute .py scripts (which can be done via .htaccess with Apache).
+* The path to Python needs to be setup on the shebang (first line) of auth-test.py and sort-album.py
+* There are a few Python dependencies, flickr-api being one; I can't remember the others off hand, but hopefully the errors will be obvious - feel free to do a pull request to update this README with the actual dependency list!

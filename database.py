@@ -7,8 +7,12 @@ def AddToDatabase(user_id, oauth_token, oauth_secret):
         cnx = mysql.connector.connect(user=keys.kDATABASE_USER, password=keys.kDATABASE_PASSWORD,
                                 host=keys.kDATABASE_HOST,
                                 database=keys.kDATABASE_DATABASE)
-
+                                
+        delete_entry = ("DELETE FROM `tokens` WHERE `user_id` = '%s'" % user_id)
         cursor = cnx.cursor()
+        cursor.execute(delete_entry)
+        
+        cursor = cnx.cursor()        
         while True:
             try:
                 token_id = random.randint(0, (1<<32) - 1)
